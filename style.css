@@ -1,0 +1,956 @@
+/* =========================================================
+   WEDDING INVITATION - CLEAN CSS
+   Struktur mengikuti HTML yang sekarang.
+   CSS countdown/RSVP/rekening/GSAP yang tidak dipakai dihapus.
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root{
+    --primary:#F3D27B;
+    --secondary:#F5E6C8;
+    --white:#ffffff;
+    --black:#555;
+    --text:#555555;
+    --bg:#F7F5F2;
+    --card:#FFFFFF;
+    --shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:var(--bg);
+    color:var(--secondary);
+    overflow-x:hidden;
+}
+
+body.lock-scroll{
+    overflow:hidden;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    border:0;
+    outline:0;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+/* =========================
+   PAGE
+========================= */
+.page{
+    width:100%;
+    max-width:430px;
+    min-height:100vh;
+    margin:auto;
+    position:relative;
+    overflow:hidden;
+    background:var(--white);
+    box-shadow:0 0 40px rgba(0,0,0,.12);
+}
+
+.container{
+    width:min(92%,390px);
+    margin:auto;
+}
+
+.section{
+    padding:90px 0;
+    position:relative;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+.section-subtitle{
+    display:block;
+    text-align:center;
+    color:var(--secondary);
+    font-size:.95rem;
+    letter-spacing:2px;
+    margin-bottom:12px;
+    text-transform:uppercase;
+}
+
+.section-title{
+    font-family:'Cormorant Garamond',serif;
+    text-align:center;
+    font-size:2.4rem;
+    color:var(--secondary);
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.section-title1{
+    font-family:'Great Vibes',cursive;
+    text-align:center;
+    font-size:2rem;
+    color:var(--secondary);
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.section-description{
+    text-align:center;
+    line-height:1.9;
+    color:var(--secondary);
+    font-size:.95rem;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:15px 35px;
+    border-radius:50px;
+    background:var(--primary);
+    color:white;
+    font-weight:600;
+    transition:.35s;
+}
+
+.btn-primary:hover{
+    background:var(--secondary);
+    transform:translateY(-3px);
+}
+
+/* =========================
+   LOADING
+========================= */
+.loading-screen{
+    position:fixed;
+    inset:0;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    z-index:99999;
+    transition:.5s;
+}
+
+.loading-screen.loaded{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader{
+    width:60px;
+    height:60px;
+    border:4px solid #E6E6E6;
+    border-top:4px solid var(--primary);
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* =========================
+   DESKTOP SIDE PANEL
+========================= */
+.desktop-overlay{
+    display:none;
+}
+
+/* =========================
+   COVER / LAYER 1
+========================= */
+
+#cover{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100dvh;
+    z-index:9999;
+    overflow:hidden;
+    transition:opacity 1.2s ease,transform 1.2s ease,filter 1.2s ease;
+}
+
+.cover{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    padding:25px;
+}
+
+.cover-background{
+    position:absolute;
+    inset:0;
+    z-index:0;
+}
+
+.cover-background .bg-video{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+}
+
+.cover-overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+
+}
+
+.cover-content{
+    position:relative;
+    z-index:10;
+    width:min(92%,380px);
+    text-align:center;
+    color:#222;
+}
+
+/* COVER CONTENT - MUNCUL SETELAH 15 DETIK */
+.cover-content{
+    opacity:0;
+    transform:translateY(20px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+body.cover-ready .cover-content{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.cover-subtitle{
+    font-size:1rem;
+    letter-spacing:3px;
+    margin-bottom:15px;
+}
+
+.cover-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:4.5rem;
+    font-weight:500;
+    line-height:1.1;
+    letter-spacing:1px;
+    margin-bottom:15px;
+}
+
+.cover-title span{
+    display:block;
+    color:var(--primary);
+    font-size:2.8rem;
+}
+
+.cover-date{
+    font-size:1rem;
+    letter-spacing:2px;
+    margin-bottom:35px;
+}
+
+.guest-box{
+    width:100%;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    margin-bottom:30px;
+}
+
+.guest-box small{
+    display:block;
+    margin-bottom:8px;
+    letter-spacing:1px;
+}
+
+.guest-box h3{
+    font-size:1.25rem;
+    font-weight:600;
+}
+
+.btn-open{
+    width:100%;
+    padding:16px;
+    border-radius:50px;
+    background:#fff;
+    color:var(--primary);
+    font-size:1rem;
+    font-weight:700;
+    transition:.35s;
+}
+
+.btn-open:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(0,0,0,.20);
+}
+
+.scroll-indicator{
+    position:absolute;
+    z-index:10;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+.scroll-indicator span{
+    display:block;
+    width:26px;
+    height:42px;
+    border:2px solid #fff;
+    border-radius:50px;
+    position:relative;
+}
+
+.scroll-indicator span::before{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#fff;
+    border-radius:50%;
+    left:50%;
+    transform:translateX(-50%);
+    top:8px;
+    animation:scrollMouse 1.6s infinite;
+}
+
+@keyframes scrollMouse{
+    0%{opacity:0;top:8px;}
+    50%{opacity:1;}
+    100%{opacity:0;top:24px;}
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.hidden{
+    display:none;
+}
+
+#mainContent{
+    position:relative;
+    z-index:20;
+    opacity:0;
+    transition:opacity .8s ease;
+}
+
+#mainContent.is-visible{
+    opacity:1;
+}
+
+#cover.is-closing{
+    opacity:0;
+    transform:scale(1.05);
+    filter:blur(10px);
+    pointer-events:none;
+}
+
+/* =========================
+   HERO / LAYER 2
+========================= */
+.hero{
+    position:relative;
+    height:100dvh;
+    min-height:100dvh;
+    overflow:hidden;
+    background:url("img/BG-MEMPELAI.png") center bottom/cover no-repeat;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:80%;
+    background:linear-gradient(
+        to bottom,
+        rgba(90,0,25,0) 0%,
+        rgba(90,0,25,.15) 25%,
+        rgba(90,0,25,.45) 55%,
+        rgba(90,0,25,.80) 80%,
+        rgba(90,0,25,1) 100%
+    );
+    z-index:5;
+    pointer-events:none;
+}
+
+.hero .container{
+    position:absolute;
+    z-index:6;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    min-height:100%;
+    margin:0;
+    padding:0;
+}
+
+.hero .hero-text{
+    position:absolute;
+    bottom:70px;
+    left:0;
+    width:100%;
+    margin:0;
+    text-align:center;
+}
+
+.hero .hero-button{
+    position:absolute;
+    bottom:40px;
+    left:0;
+    width:100%;
+    margin:0;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-text{
+    color:var(--secondary);
+}
+
+.hero-text .section-subtitle,
+.hero-text .hero-date,
+.hero-text .hero-time{
+    color:var(--secondary);
+}
+
+.hero-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.8rem;
+    font-weight:500;
+    color:var(--secondary);
+    line-height:1;
+    letter-spacing:.5px;
+    white-space:nowrap;
+    margin-bottom:10px;
+}
+
+.hero-title span{
+    color:#D4AF37;
+}
+
+.hero-date{
+    font-size:1.1rem;
+    margin-top:10px;
+}
+
+.hero-time{
+    margin-bottom:35px;
+}
+
+.hero-button{
+    margin-top:10px;
+}
+
+/* =========================
+   COUPLE
+========================= */
+.couple{
+    position:relative;
+    background:url("img/BG2.png") center/cover no-repeat;
+}
+
+.couple > .section-subtitle,
+.couple > .section-title1,
+.couple > .section-description{
+    position:relative;
+    z-index:2;
+}
+
+.couple .container{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:45px;
+}
+
+.couple-card{
+    width:100%;
+    max-width:320px;
+    padding:30px;
+    background:url("img/BG3.png") center/cover no-repeat;
+    border-radius:50%/15%;
+    text-align:center;
+    box-shadow:var(--shadow);
+    border:5px solid #fff;
+}
+
+.couple-card img{
+    width:200px;
+    margin:0 auto 25px;
+    border-radius:50%/30%;
+}
+
+.couple-card h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.2rem;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.couple-card p{
+    color:var(--secondary);
+    line-height:1.8;
+}
+
+.couple-love{
+    width:90px;
+    height:90px;
+    margin:30px auto;
+    border-radius:50%;
+    background:var(--primary);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(111,143,175,.25);
+}
+
+.couple-love h1{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    margin:0;
+}
+
+/* =========================
+   GALLERY
+========================= */
+.gallery{
+    position:relative;
+    overflow:hidden;
+    background:url("img/BG1.png") center/cover no-repeat;
+}
+
+.gallery .container{
+    position:relative;
+    z-index:2;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+.gallery-item img{
+    width:100%;
+    display:block;
+    border-radius:15px;
+    transition:transform .35s ease;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.03);
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.3s;
+    z-index:10000;
+}
+
+.lightbox.show{
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
+}
+
+.lightbox img{
+    width:90%;
+    max-width:700px;
+    max-height:85vh;
+    object-fit:contain;
+    border-radius:20px;
+    transform:scale(.8);
+    transition:.3s;
+}
+
+.lightbox.show img{
+    transform:scale(1);
+}
+
+.close-lightbox{
+    position:absolute;
+    top:15px;
+    right:20px;
+    width:48px;
+    height:48px;
+    background:transparent;
+    color:#fff;
+    font-size:42px;
+    line-height:1;
+    cursor:pointer;
+}
+
+/* =========================
+   WELCOME / PESAN PENUTUP
+========================= */
+.welcome{
+    background:url("img/BG2.png") center/cover no-repeat;
+}
+
+#welcome .container{
+    text-align:center;
+}
+
+#welcome .section-subtitle,
+#welcome .section-description{
+    color:var(--secondary);
+}
+
+#welcome .section-description{
+    line-height:1.9;
+}
+
+#welcome .section-title1{
+    font-family:'Great Vibes',cursive;
+    color:#D4AF37;
+    font-size:2.5rem;
+    line-height:1.2;
+    margin-top:20px;
+}
+
+.welcome .hero-image{
+    width:200px;
+    margin:0 auto 35px;
+    position:relative;
+}
+
+.welcome .hero-image img{
+    display:block;
+    width:100%;
+    border:5px solid var(--card);
+    border-radius:50%/30%;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer{
+    position:relative;
+    padding:80px 20px;
+    text-align:center;
+    background:linear-gradient(135deg,var(--primary),var(--primary));
+    color:#fff;
+}
+
+.footer h2{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.footer p{
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.footer-brand{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.footer-text{
+    margin:0;
+}
+
+.footer-logo{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:contain;
+    background:#fff;
+    padding:3px;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+.music-button{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    background:var(--primary);
+    color:#fff;
+    font-size:24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+    z-index:999;
+    transition:.3s;
+}
+
+.music-button:hover{
+    transform:scale(.8);
+}
+
+/* =========================
+   SCROLL ANIMATION - DIPAKAI JS
+========================= */
+.animate-left,
+.animate-right,
+.animate-up{
+    opacity:0;
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.animate-left{
+    transform:translateX(-60px);
+}
+
+.animate-right{
+    transform:translateX(60px);
+}
+
+.animate-up{
+    transform:translateY(60px);
+}
+
+.animate-left.show,
+.animate-right.show,
+.animate-up.show{
+    opacity:1;
+    transform:translate(0,0);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#F5F5F5;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--primary);
+    border-radius:50px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:420px){
+    .hero-title{
+        font-size:3.2rem;
+    }
+
+    .cover-title{
+        font-size:3.8rem;
+    }
+}
+
+@media (min-width:768px){
+    body{
+        margin:0;
+        background:#fff;
+    }
+
+    body::before{
+        content:"";
+        position:fixed;
+        top:0;
+        left:0;
+        right:430px;
+        bottom:0;
+        background:url("img/BG-MEMPELAI.png") center/cover no-repeat;
+        z-index:-1;
+    }
+
+    .page{
+        width:430px;
+        max-width:430px;
+        margin-left:auto;
+        margin-right:0;
+        background:#fff;
+        box-shadow:0 0 40px rgba(0,0,0,.18);
+    }
+
+    .desktop-overlay{
+        position:fixed;
+        top:0;
+        left:0;
+        width:calc(100% - 430px);
+        height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background:rgba(0,0,0,.25);
+        z-index:5;
+    }
+
+    .desktop-text{
+        color:#fff;
+        text-align:center;
+        width:80%;
+        max-width:650px;
+    }
+
+    .desktop-text .subtitle{
+        font-size:15px;
+        letter-spacing:5px;
+        text-transform:uppercase;
+    }
+
+    .desktop-text h1{
+        font-size:72px;
+        font-family:'Great Vibes',cursive;
+        margin:15px 0;
+    }
+
+    .desktop-text h1 span{
+        color:var(--primary);
+    }
+
+    .desktop-text .line{
+        width:120px;
+        height:2px;
+        background:var(--primary);
+        margin:25px auto;
+    }
+
+    .desktop-text h3{
+        font-size:24px;
+        margin-bottom:20px;
+    }
+
+    .desktop-text p{
+        font-size:18px;
+        line-height:1.8;
+    }
+
+    /* Desktop background yang memang dipakai desain saat ini */
+    .hero{
+        background:url("img/BG-MEMPELAI.png") center/cover no-repeat;
+    }
+
+    .couple{
+        background:url("img/BG1.png") center/cover no-repeat;
+    }
+
+    .gallery{
+        background:url("img/BG2.png") center/cover no-repeat;
+    }
+}
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.92);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+}
+
+#lightbox.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+#lightboxImage {
+    max-width: 90vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    cursor: zoom-in;
+
+    transition: transform 0.3s ease;
+}
+
+#lightboxImage.zoomed {
+    transform: scale(1.8);
+    cursor: zoom-out;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    z-index: 100000;
+
+    width: 45px;
+    height: 45px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.2);
+    color: white;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+

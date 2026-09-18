@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Wedding Invitation | Utari & Fajar</title>           <!-- 1. GANTI JUDUL LINK DISINI -->
+    <meta name="description" content="Wedding Invitation Utari & Fajar">
+    <meta name="keywords" content="Wedding, Invitation, Pernikahan">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/HAG DIGITAL.png" loading="lazy">   <!-- GAMBAR LOGO DI BROWSER DISINI -->
+
+    <meta name="theme-color" content="#738FA6">
+    <meta name="msapplication-navbutton-color" content="#738FA6">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =======================================
+            FLOATING FLOWER
+    ======================================== -->
+
+    <div id="flower-container"></div>
+
+    <!-- =======================================
+            BACKGROUND MUSIC
+    ======================================== -->
+
+    <audio id="bgMusic" loop>
+        <source src="music/MUSIC - Shape of My Heart.mp3" type="audio/mpeg">    <!-- 2. MUSIK DISINI -->
+    </audio>
+
+    <!-- =======================================
+            LOADING SCREEN
+    ======================================== -->
+
+    <div class="loading-screen" id="loadingScreen">
+
+        <div class="loader"></div>
+
+        <p>Loading Invitation...</p>
+
+    </div>
+
+    <!-- =======================================
+            MAIN PAGE
+    ======================================== -->
+
+    <div class="desktop-overlay">
+        <div class="desktop-text">
+
+            <span class="subtitle">THE WEDDING OF</span>
+
+            <h1>Utari <span>&</span> Fajar</h1>
+
+            <div class="line"></div>
+
+            <h3>30 April 2027</h3>
+
+            <p>
+                Dengan penuh rasa syukur kami mengundang
+                Bapak/Ibu/Saudara/i untuk menghadiri
+                acara pernikahan kami.
+            </p>
+
+        </div>
+    </div>
+    <!-- =======================================
+                COVER
+    ======================================== -->
+
+    <div class="page">
+
+    <section class="cover section" id="cover">
+
+        <!-- Overlay -->
+        <div class="cover-overlay"></div>
+
+        <!-- Background -->
+       
+        <div class="cover-background">
+
+
+             <video autoplay muted loop playsinline preload="none" class="bg-video">
+                 <source src="video/BGV.mp4" type="video/mp4">   <!-- 3. BACKGROUND LAYER 1 DISINI-->
+            </video>
+
+
+        </div>
+
+        <!-- Content -->
+        <div class="cover-content">
+            
+
+            <p class="cover-subtitle">          <!-- 4. NAMA ACARA DISINI -->
+                The Wedding Of
+            </p>
+
+            <h1 class="cover-title">            <!-- 5. NAMA PASANGAN DISINI -->
+                Utari
+                <span>&</span>
+                Fajar
+            </h1>
+
+            <p class="cover-date">          <!-- 6. TANGGAL PERNIKAHAN DISINI -->
+                30 April 2026
+            </p>
+
+            <div class="guest-box">
+
+                <small>Kepada Yth.</small>
+
+                <h3 id="guestName">
+                    Tamu Undangan
+                </h3>
+
+            </div>
+
+            <button
+                class="btn-open"
+                id="openInvitation">
+
+               📩 Buka Undangan
+
+            </button>
+
+        </div>
+
+        <!-- Scroll Indicator -->
+
+        <div class="scroll-indicator">
+
+            <span></span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =======================================
+                MAIN CONTENT
+    ======================================== -->
+
+    <main id="mainContent" class="hidden">
+        <!-- =======================================
+                    HERO
+        ======================================== -->
+
+        <section class="hero section" id="hero">
+        
+
+            <div class="container">
+                
+
+
+                <div class="hero-text hero-text-content">
+
+                    <span class="section-subtitle"> <!-- 9. NAMA ACARA DISINI -->
+                        The Wedding Of
+                    </span>
+
+                    <h1 class="hero-title">         <!-- 10. NAMA PASANGAN DISINI -->
+
+                        Utari
+                        <span>&</span>
+                        Fajar
+
+                    </h1>
+
+                    <p class="hero-date">           <!-- 11. TANGGAL PERNIKAHAN DISINI -->
+
+                        Kamis, 30 April 2026
+
+                    </p>
+
+                    <p class="hero-time">           <!-- 12. JAM PERNIKAHAN DISINI -->
+
+                        Pukul 09.00 WIB
+
+                    </p>
+
+                </div>
+
+                <div class="hero-button hero-btn">
+
+                    <button class="btn-primary" id="saveDate">
+
+                        Save The Date
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =======================================
+                    COUPLE
+        ======================================== -->
+
+        <section class="couple section" id="couple">
+
+                <span class="section-subtitle">
+
+                    Bride & Groom
+
+                </span>
+
+                <h2 class="section-title1">
+
+                U | F
+
+                </h2>
+
+                <p class="section-description">
+
+                Tanpa mengurangi rasa hormat,
+                kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian 
+                untuk menghadiri acara pernikahan kami
+
+                </p>
+
+            <div class="container">
+
+                <div class="couple-card">
+
+                    <img src="img/FOTO MEMPELAI PEREMPUAN.png" loading="lazy"alt="Utari">   <!-- 16. FOTO MEMPELAI PEREMPUAN DISINI -->
+
+                    <h2>            <!-- 17. NAMA MEMPELAI PEREMPUAN DISINI -->
+
+                        Utari
+
+                    </h2>
+
+                    <p>         <!-- 18. NAMA ORANG TUA MEMPELAI PEREMPUAN DISINI -->
+
+                        Putri Pertama dari
+                        <br>
+                        Bapak Sumardi
+                        <br>
+                        &
+                        <br>
+                        Ibu Pita Patimah
+
+                    </p>
+
+              
+                </div>
+
+                <div class="couple-love">
+
+                    <h1>
+
+                        &
+
+                    </h1>
+
+                </div>
+
+
+                <div class="couple-card">
+
+                    <img src="img/FOTO MEMPELAI LAKI-LAKI.png" loading="lazy"alt="Fajar"> <!-- 19. FOTO MEMPELAI LAKI-LAKI DISINI -->
+
+                    <h2>            <!-- 20. NAMA MEMPELAI LAKI-LAKI DISINI -->
+
+                        Fajar
+
+                    </h2>
+
+                    <p>         <!-- 21. NAMA ORANG TUA MEMPELAI LAKI-LAKI DISINI -->
+
+                        Putra Kedua dari
+                        <br>
+                        Bapak Acin
+                        <br>
+                        &
+                        <br>
+                        Ibu Siti Khotiman
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- =======================================
+                    GALLERY
+        ======================================== -->
+
+        <section class="gallery section" id="gallery">
+
+        
+            <div class="container">
+
+                <span class="section-subtitle">
+                    Gallery
+                </span>
+
+                <h2 class="section-title">
+                    Momen Kebersamaan Kami
+                </h2>
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 1.png" loading="lazy" alt="Gallery">    <!-- 37. FOTO GALLERY 1 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 2.png" loading="lazy" alt="Gallery">    <!-- 38. FOTO GALLERY 2 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 3.png" loading="lazy" alt="Gallery">    <!-- 39. FOTO GALLERY 3 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 4.png" loading="lazy" alt="Gallery">    <!-- 40. FOTO GALLERY 4 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 5.png" loading="lazy" alt="Gallery">    <!-- 41. FOTO GALLERY 5 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 6.png" loading="lazy" alt="Gallery">    <!-- 41. FOTO GALLERY 5 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 7.png" loading="lazy" alt="Gallery">    <!-- 37. FOTO GALLERY 1 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 8.png" loading="lazy" alt="Gallery">    <!-- 38. FOTO GALLERY 2 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 9.png" loading="lazy" alt="Gallery">    <!-- 39. FOTO GALLERY 3 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 10.png" loading="lazy" alt="Gallery">    <!-- 40. FOTO GALLERY 4 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 11.png" loading="lazy" alt="Gallery">    <!-- 41. FOTO GALLERY 5 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 12.png" loading="lazy" alt="Gallery">    <!-- 41. FOTO GALLERY 5 DISINI -->
+                    </div>
+
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 13.png" loading="lazy" alt="Gallery">    <!-- 37. FOTO GALLERY 1 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 14.png" loading="lazy" alt="Gallery">    <!-- 38. FOTO GALLERY 2 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 15.png" loading="lazy" alt="Gallery">    <!-- 39. FOTO GALLERY 3 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 16.png" loading="lazy" alt="Gallery">    <!-- 40. FOTO GALLERY 4 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 17.png" loading="lazy" alt="Gallery">    <!-- 41. FOTO GALLERY 5 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 18.png" loading="lazy" alt="Gallery">    <!-- 41. FOTO GALLERY 5 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 19.png" loading="lazy" alt="Gallery">    <!-- 37. FOTO GALLERY 1 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 20.png" loading="lazy" alt="Gallery">    <!-- 38. FOTO GALLERY 2 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 21.png" loading="lazy" alt="Gallery">    <!-- 39. FOTO GALLERY 3 DISINI -->
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="img/GALLERY 22.png" loading="lazy" alt="Gallery">    <!-- 40. FOTO GALLERY 4 DISINI -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =======================================
+                    PESAN PENUTUP
+        ======================================== -->
+
+        <section class="welcome section" id="welcome">          <!-- 14. PESAN SELAMAT DATANG DISINI -->
+
+
+            <div class="container">
+
+                <span class="section-subtitle">
+
+                   The Wedding Of
+
+                </span> 
+
+                 <div class="hero-image hero-img">
+
+                    <img src="img/FOTO KEDUA MEMPELAI.png" loading="lazy"alt="Utari & Fajar">   <!-- 8. FOTO PASANGAN DISINI -->
+
+                </div>
+
+                <p class="section-description">
+
+Kehadiran dan doa restu Anda adalah kebahagiaan bagi kami.
+Terima kasih atas doa dan kehadirannya.
+
+                </p>
+               <h2 class="section-title1">
+
+                U | F
+
+                </h2>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =======================================
+                    FOOTER
+        ======================================== -->
+
+        <footer class="footer">         <!-- 51. INFO FOOTER    DISINI -->
+
+            <div class="container">
+
+
+                <div class="footer-brand">
+                    <p class="footer-text">
+                        Created ❤️ by <b>HAG DIGITAL</b>
+                    </p>
+                    
+                </div>
+                <div class="footer-brand">
+
+                    <a href="https://lynk.id/heyakiragroup" target="_blank">
+                        <img src="img/HAG DIGITAL.png" alt="HAG DIGITAL Logo" loading="lazy" class="footer-logo">
+                    </a>
+                    
+                    <a href="https://wa.me/6285129965012?text=Hallo%20Kak%20HAG%20DIGITAL,%20Boleh%20Minta%20Info%20Detailnya%3F" target="_blank">
+                        <img src="img/LOGOWA.png" alt="WA Logo" loading="lazy" class="footer-logo">
+                    </a>
+                </div>
+
+                <button
+                    class="music-button"
+                    id="musicButton">
+
+                    🎵
+
+                </button>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
