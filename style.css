@@ -728,7 +728,7 @@ body.cover-ready .cover-content{
     position:absolute;
     right:20px;
     bottom:20px;
-    background:var(--primary);
+    background:#4A0414;
     color:#fff;
     font-size:24px;
     display:flex;
